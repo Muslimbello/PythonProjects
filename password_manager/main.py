@@ -1,8 +1,7 @@
 from cryptography.fernet import Fernet
 
-master_pwd = input("What is the master password")
 
-""" uncomment and run this code ones to get your unique key """
+""" uncomment and run this code only ones, to get your unique key """
 # def Key_gen():
 #     key = Fernet.generate_key()
 #     with open("key.key", "wb") as key_file:
@@ -16,7 +15,7 @@ def load_key():
     return key
 
 
-key = load_key() + master_pwd.encode()
+key = load_key()
 fer = Fernet(key)
 
 
@@ -24,7 +23,8 @@ def create():
     name = input("Account Name: ")
     pwd = input("Password: ")
     with open("password.txt", "a") as f:
-        f.write(name + "|" + str(fer.encrypt(pwd.encode())) + "\n")
+        encrypt_pass = fer.encrypt(pwd.encode()).decode()
+        f.write(name + "|" + encrypt_pass + "\n")
 
 
 def view():
@@ -32,7 +32,8 @@ def view():
         for line in f.readlines():
             data = line.rstrip()
             user, passw = data.split("|")
-            print(f"user:{user}, password:{passw}")
+            decrypt_passw = fer.decrypt(passw.encode()).decode()
+            print(f"User: {user}, | Password:{decrypt_passw}")
 
 
 while True:
@@ -46,4 +47,5 @@ while True:
     elif mode == "create":
         create()
     else:
-        pass
+        print("invalid mode")
+        continue
