@@ -62,16 +62,6 @@ This Python program serves as a simple yet robust password manager, employing th
 
 To begin, you need to generate a unique encryption key. Uncomment and run the Key_gen() function provided in the code. This key is crucial for encrypting and decrypting your passwords and is saved in a file named key.key.
 
-# Uncomment and run this code only once, to get your unique key
-
-```python
-def Key_gen():
-	key = Fernet.generate_key()
-	with open("key.key", "wb") as key_file:
-		key_file.write(key)
-Key_gen()
-```
-
 # Dependencies
 
 This password manager relies on the cryptography library for Fernet encryption. To install the necessary dependencies, you can use:
