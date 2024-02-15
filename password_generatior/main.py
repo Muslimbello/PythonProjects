@@ -1,6 +1,8 @@
 # Password Generator Project
 import random
 
+# string modules
+# ord
 letters = [
     "a",
     "b",

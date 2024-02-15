@@ -1,12 +1,18 @@
 from cryptography.fernet import Fernet
 
 
-""" uncomment and run this code only ones, to get your unique key """
-# def Key_gen():
-#     key = Fernet.generate_key()
-#     with open("key.key", "wb") as key_file:
-#         key_file.write(key)
-# Key_gen()
+def Key_gen():
+    key = Fernet.generate_key()
+
+    with open("key.key", "wb") as key_file:
+        key_file.write(key)
+
+
+with open("key.key", "rb") as file:
+    if file.read():
+        pass
+    else:
+        Key_gen()
 
 
 def load_key():
@@ -16,6 +22,7 @@ def load_key():
 
 
 key = load_key()
+print(key)
 fer = Fernet(key)
 
 
