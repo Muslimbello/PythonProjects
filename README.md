@@ -79,8 +79,17 @@ This password manager relies on the cryptography library for Fernet encryption. 
 ```bash
 #  Example to install the cryptocraphy library
 pip install cryptography
-# Example command to run the program
+```
+## How to Use
+
+1. Clone the repository to your local machine.
+2. Navigate to the password manager project directory.
+3. Run the main.py script.
+
+```bash
+# Example command to run
 python main.py
 # or for linux users
 python3 main.py
 ```
+
