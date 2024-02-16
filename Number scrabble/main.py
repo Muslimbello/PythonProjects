@@ -23,7 +23,9 @@ while list != []:
     if scrabble(usr1_list):
         print("Player 1 wins! The numbers add up to 15.")
         break
-
+    if len(list) == 0:
+        print("its a tie")
+        break
     # user2
     user2 = int(input("pick a number from 1 -9: "))
     list.remove(user2)
@@ -32,7 +34,4 @@ while list != []:
     print(usr2_list)
     if scrabble(usr2_list):
         print("Player 2 wins! The numbers add up to 15.")
-        break
-    if len(list) == 0:
-        print("its a tie")
         break
